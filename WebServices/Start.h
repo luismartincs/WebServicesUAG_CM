@@ -11,7 +11,11 @@
 #import "Declarations.h"
 
 @interface Start : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *labelCity;
+@property (strong, nonatomic) IBOutlet UILabel *labelCityValue;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
+- (IBAction)loadWeather:(id)sender;
 
 @end
 

@@ -20,7 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)loadWeather:(id)sender {
+    [_indicator startAnimating];
     mjsonGeo = [WebServices getWeatherWithLatitude:nLat AndLongitude:nLng];
     print(NSLog(@"mjsonGeo  = %@",mjsonGeo))
     ObjectResponse *object  = [Parser parseGeoObject];
@@ -29,14 +37,9 @@
     float lng               = coordObject.lon;
     
     NSString *stName        = object.name;
-    
+
+    _labelCityValue.text= object.name;
+    //[_indicator stopAnimating];
     print(NSLog(@"We are at %@ with latitude %f and longitude %f",stName, lat, lng))
-    
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end
