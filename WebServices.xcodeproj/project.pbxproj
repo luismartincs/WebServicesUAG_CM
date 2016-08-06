@@ -40,6 +40,8 @@
 		A02921401D39C3E000EE6EF0 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A02921341D39C3E000EE6EF0 /* SBJsonWriter.m */; };
 		A02921441D39C67800EE6EF0 /* ObjectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A02921431D39C67800EE6EF0 /* ObjectResponse.m */; };
 		A02921471D39C78200EE6EF0 /* Coord.m in Sources */ = {isa = PBXBuildFile; fileRef = A02921461D39C78200EE6EF0 /* Coord.m */; };
+		A09C2D791D556E8400644A62 /* MainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A09C2D781D556E8400644A62 /* MainObject.m */; };
+		A09C2D7B1D5577B800644A62 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A09C2D7A1D5577B800644A62 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +113,9 @@
 		A02921431D39C67800EE6EF0 /* ObjectResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectResponse.m; sourceTree = "<group>"; };
 		A02921451D39C78200EE6EF0 /* Coord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coord.h; sourceTree = "<group>"; };
 		A02921461D39C78200EE6EF0 /* Coord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coord.m; sourceTree = "<group>"; };
+		A09C2D771D556E8400644A62 /* MainObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainObject.h; sourceTree = "<group>"; };
+		A09C2D781D556E8400644A62 /* MainObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainObject.m; sourceTree = "<group>"; };
+		A09C2D7A1D5577B800644A62 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +157,7 @@
 				A02920E01D39ABC200EE6EF0 /* Assets.xcassets */,
 				A02920E21D39ABC200EE6EF0 /* LaunchScreen.storyboard */,
 				A02920E51D39ABC200EE6EF0 /* Info.plist */,
+				A09C2D7A1D5577B800644A62 /* Podfile */,
 				A02920DD1D39ABC200EE6EF0 /* WebServices.xcdatamodeld */,
 				A02920D11D39ABC100EE6EF0 /* Supporting Files */,
 			);
@@ -298,6 +304,8 @@
 				A02921431D39C67800EE6EF0 /* ObjectResponse.m */,
 				A02921451D39C78200EE6EF0 /* Coord.h */,
 				A02921461D39C78200EE6EF0 /* Coord.m */,
+				A09C2D771D556E8400644A62 /* MainObject.h */,
+				A09C2D781D556E8400644A62 /* MainObject.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -362,6 +370,7 @@
 			files = (
 				A02920E41D39ABC200EE6EF0 /* LaunchScreen.storyboard in Resources */,
 				A02920E11D39ABC200EE6EF0 /* Assets.xcassets in Resources */,
+				A09C2D7B1D5577B800644A62 /* Podfile in Resources */,
 				A02920DC1D39ABC200EE6EF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +400,7 @@
 				A029213D1D39C3E000EE6EF0 /* SBJsonStreamWriterState.m in Sources */,
 				A029213E1D39C3E000EE6EF0 /* SBJsonTokeniser.m in Sources */,
 				A029211A1D39B05100EE6EF0 /* OCMapperConfig.m in Sources */,
+				A09C2D791D556E8400644A62 /* MainObject.m in Sources */,
 				A02921081D39AF7E00EE6EF0 /* NSObject+ObjectMapper.m in Sources */,
 				A02920D31D39ABC100EE6EF0 /* main.m in Sources */,
 				A029210B1D39AF7E00EE6EF0 /* CommonLoggingProvider.m in Sources */,
@@ -557,6 +567,7 @@
 				A02920EA1D39ABC200EE6EF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

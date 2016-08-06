@@ -28,13 +28,16 @@
 }
 
 - (IBAction)loadWeather:(id)sender {
-    [_indicator startAnimating];
-    [self queueLoadData];
+    if(![_textLatitude.text isEqualToString:@""] && ![_textLongitude.text isEqualToString:@""]){
+        [self queueLoadData];
+    }else{
+        _labelCityValue.text = @"Error, campo vacío";
+    }
 }
 
 -(void)queueLoadData{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
+    [_indicator startAnimating];
     
     NSOperationQueue *queue = [NSOperationQueue new];
     
@@ -49,7 +52,7 @@
 }
 
 -(void)loadData{
-    mjsonGeo = [WebServices getWeatherWithLatitude:nLat AndLongitude:nLng];
+    mjsonGeo = [WebServices getWeatherWithLatitude:_textLatitude.text AndLongitude:_textLongitude.text];
     print(NSLog(@"mjsonGeo  = %@",mjsonGeo))
 
 }
@@ -63,6 +66,16 @@
         float lat               = coordObject.lat;
         float lng               = coordObject.lon;
         NSString *stName        = object.name;
+        
+        MainObject *main = object.main;
+        
+        _lblTemp.text = [NSString stringWithFormat:@"%f",main.temp];
+        _lblPress.text = [NSString stringWithFormat:@"%f",main.pressure];
+        _lblHum.text = [NSString stringWithFormat:@"%f",main.humidity];
+        _lblTmpMin.text = [NSString stringWithFormat:@"%f",main.temp_min];
+        _lblTmpMax.text = [NSString stringWithFormat:@"%f",main.temp_max];
+        _lblSealvl.text = [NSString stringWithFormat:@"%f",main.sea_level];
+        _lblGndlvl.text = [NSString stringWithFormat:@"%f",main.grnd_level];
         
         _labelCityValue.text= object.name;
         [_indicator stopAnimating];
