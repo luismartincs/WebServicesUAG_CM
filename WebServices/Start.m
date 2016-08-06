@@ -29,17 +29,48 @@
 
 - (IBAction)loadWeather:(id)sender {
     [_indicator startAnimating];
+    [self queueLoadData];
+}
+
+-(void)queueLoadData{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    
+    NSOperationQueue *queue = [NSOperationQueue new];
+    
+    NSInvocationOperation *opGet = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(loadData) object:nil];
+    [queue addOperation:opGet];
+    
+     NSInvocationOperation *opDidGet = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(didLoadData) object:nil];
+    [opDidGet addDependency:opGet];
+    
+    [queue addOperation:opDidGet];
+    
+}
+
+-(void)loadData{
     mjsonGeo = [WebServices getWeatherWithLatitude:nLat AndLongitude:nLng];
     print(NSLog(@"mjsonGeo  = %@",mjsonGeo))
-    ObjectResponse *object  = [Parser parseGeoObject];
-    Coord *coordObject      = object.coord;
-    float lat               = coordObject.lat;
-    float lng               = coordObject.lon;
-    
-    NSString *stName        = object.name;
 
-    _labelCityValue.text= object.name;
-    //[_indicator stopAnimating];
-    print(NSLog(@"We are at %@ with latitude %f and longitude %f",stName, lat, lng))
 }
+
+-(void)didLoadData{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+    
+        ObjectResponse *object  = [Parser parseGeoObject];
+        Coord *coordObject      = object.coord;
+        float lat               = coordObject.lat;
+        float lng               = coordObject.lon;
+        NSString *stName        = object.name;
+        
+        _labelCityValue.text= object.name;
+        [_indicator stopAnimating];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        print(NSLog(@"We are at %@ with latitude %f and longitude %f",stName, lat, lng));
+        
+    });
+}
+
 @end
